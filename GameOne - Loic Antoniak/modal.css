@@ -529,8 +529,6 @@ footer {
     margin-top: 1rem;
   }
 
-
-
   .header-logo img {
     width: 70%;
   }
@@ -538,14 +536,16 @@ footer {
 
 @media screen and (max-width: 448px) {
   .topnav.responsive .icon {
-    top: -2.5rem
+    top: -2.5rem;
   }
 
   .main-menu {
     position: relative;
     top: -0.5rem;
     right: -3rem;
+  }
 }
+
 @keyframes modalopen {
   from {
     opacity: 0;
