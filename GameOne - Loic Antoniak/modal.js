@@ -61,8 +61,9 @@ const closeSubmitModal = () => {
 };
 
 // close submit modal
-closeSubmitBtn.forEach((btn) => btn.addEventListener("click", closeSubmitModal));
-
+closeSubmitBtn.forEach((btn) =>
+  btn.addEventListener("click", closeSubmitModal)
+);
 
 /*========================*/
 /*      FORM VALIDATION   */
@@ -97,9 +98,8 @@ const error = {
   },
 };
 
-const showDataError = (input, condition, error, e) => {
+const showDataError = (input, condition, error) => {
   if (condition) {
-    e.preventDefault();
     input.parentElement.setAttribute("data-error", error);
   } else {
     input.parentElement.removeAttribute("data-error");
@@ -107,13 +107,13 @@ const showDataError = (input, condition, error, e) => {
 };
 
 // Check if input is empty
-const checkInputIsEmpty = (input, error, e) => {
+const checkInputIsEmpty = (input, error) => {
   const value = input.value;
-  showDataError(input, value === "", error, e);
+  showDataError(input, value === "", error);
 };
 
 // Check if input is valid
-const validInput = (input, error, e) => {
+const validInput = (input, error) => {
   // Create RegExp for diff validation
   const emailRegExp = new RegExp(
     "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
@@ -136,21 +136,21 @@ const validInput = (input, error, e) => {
 
   const testInput = regExpInput.test(input.value);
 
-  showDataError(input, !testInput, error, e);
+  showDataError(input, !testInput, error);
 };
 
 // Check if radio button is checked
-const checkIfOneRadioButtonIsSelected = (error, e) => {
+const checkIfOneRadioButtonIsSelected = (error) => {
   const firstLocationInput = document.getElementById("location1");
   // Select all radio buttons and convert on array
   const locations = [...form.querySelectorAll('input[name= "location"]')];
   const checkedButton = (button) => button.checked === true;
   // True if one element are checked
   const oneChecked = locations.some(checkedButton);
-  showDataError(firstLocationInput, !oneChecked, error, e);
+  showDataError(firstLocationInput, !oneChecked, error);
 };
 
-const validate = (e) => {
+const validate = () => {
   const inputs = form.getElementsByTagName("input");
   for (let i = 0; i < inputs.length; i++) {
     const name = inputs[i].name;
@@ -158,7 +158,7 @@ const validate = (e) => {
 
     // Check if radio button is checked
     if (name === "location") {
-      checkIfOneRadioButtonIsSelected(error[name].empty, e);
+      checkIfOneRadioButtonIsSelected(error[name].empty);
     } else if (inputs[i].type === "submit") return;
     // Check if general conditions are checked
     else if (name === "checkbox") {
@@ -166,15 +166,14 @@ const validate = (e) => {
       showDataError(
         generalCondition,
         !generalCondition.checked,
-        error[name].empty,
-        e
+        error[name].empty
       );
     }
     // If input is not empty, check if input is valid
     // check if input is empty
     else {
-      checkInputIsEmpty(inputs[i], error[name].empty, e);
-      notEmpty && validInput(inputs[i], error[name].notValide, e);
+      checkInputIsEmpty(inputs[i], error[name].empty);
+      notEmpty && validInput(inputs[i], error[name].notValide);
     }
   }
 };
@@ -184,7 +183,7 @@ let isValid = false;
 // Check if form is valid before submitting
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  validate(e);
+  validate();
   const allFormData = [...formData];
   const dataError = (formdata) => formdata.getAttribute("data-error");
   // True if an error exist
@@ -193,6 +192,6 @@ submitBtn.addEventListener("click", function (e) {
   if (!checkIfOneErrorExist) {
     modalbg.style.display = "none";
     modalbgSubmit.style.display = "block";
-    form.reset()
+    form.reset();
   }
 });
