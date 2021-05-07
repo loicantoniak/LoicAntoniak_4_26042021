@@ -61,6 +61,7 @@
               action="index.html"
               id="registrationForm"
               method="get"
+              onsubmit="return validate();"
             >
               <!-- firstName -->
               <div
@@ -214,14 +215,17 @@
         </div>
       </div>
 
-      <!-- <div class="bground-submit">
-        <div class="content">
-          <span class="close"></span>
-          <div class="modal-body">
-              <h1>Hello</h1>
+       <div class="bground--submit">
+        <div class="content content--submit">
+          <span class="close close--submitModal"></span>
+          <div class="modal-body modal--submit">
+              <p class="submit-message">Merci ! Votre réservation a été prise en compte.</p>
+              <button class="btn-signup close-submit close--submitModal">
+                Fermer
+              </button>
           </div>
         </div>
-      </div> -->
+      </div> 
 
     </main>
     <footer>

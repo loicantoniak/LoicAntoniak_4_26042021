@@ -122,6 +122,18 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.bground--submit {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -136,9 +148,33 @@ main {
   padding-top: 10px;
 }
 
+.content--submit {
+  height: 715px;
+}
+
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.modal--submit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.submit-message {
+  font-size: 36px;
+  text-align: center;
+  line-height: 51.34px;
+  font-weight: 400;
+  margin-top: 5rem;
+}
+
+.close-submit {
+  margin: 0 auto !important;
+  margin-bottom: -4rem !important;
 }
 
 label {
@@ -413,7 +449,6 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-
 
 @media screen and (max-width: 1150px) {
   .topnav a {

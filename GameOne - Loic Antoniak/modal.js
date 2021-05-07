@@ -7,8 +7,10 @@
 // DOM Elements
 // Modal
 const modalbg = document.querySelector(".bground");
+const modalbgSubmit = document.querySelector(".bground--submit");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeBtn = document.querySelector(".close");
+const closeSubmitBtn = document.querySelectorAll(".close--submitModal");
 const myTopnav = document.getElementById("myTopnav");
 
 // Form
@@ -48,6 +50,19 @@ const closeModal = () => {
 
 // close modal event
 closeBtn.addEventListener("click", closeModal);
+
+/*========================*/
+/*   CLOSE SUBMIT MODAL   */
+/*========================*/
+
+// close modal form
+const closeSubmitModal = () => {
+  modalbgSubmit.style.display = "none";
+};
+
+// close submit modal
+closeSubmitBtn.forEach((btn) => btn.addEventListener("click", closeSubmitModal));
+
 
 /*========================*/
 /*      FORM VALIDATION   */
@@ -135,10 +150,8 @@ const checkIfOneRadioButtonIsSelected = (error, e) => {
   showDataError(firstLocationInput, !oneChecked, error, e);
 };
 
-// Check if form is valid before submitting
-submitBtn.addEventListener("click", function (e) {
+const validate = (e) => {
   const inputs = form.getElementsByTagName("input");
-
   for (let i = 0; i < inputs.length; i++) {
     const name = inputs[i].name;
     const notEmpty = inputs[i].value !== "";
@@ -163,5 +176,23 @@ submitBtn.addEventListener("click", function (e) {
       checkInputIsEmpty(inputs[i], error[name].empty, e);
       notEmpty && validInput(inputs[i], error[name].notValide, e);
     }
+  }
+};
+
+let isValid = false;
+
+// Check if form is valid before submitting
+submitBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  validate(e);
+  const allFormData = [...formData];
+  const dataError = (formdata) => formdata.getAttribute("data-error");
+  // True if an error exist
+  const checkIfOneErrorExist = allFormData.some(dataError);
+
+  if (!checkIfOneErrorExist) {
+    modalbg.style.display = "none";
+    modalbgSubmit.style.display = "block";
+    form.reset()
   }
 });
