@@ -55,59 +55,61 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            <!-- form -->
             <form
               name="reserve"
               action="index.html"
+              id="registrationForm"
               method="get"
-              onsubmit="return validate();"
             >
+              <!-- firstName -->
               <div
                 class="formData">
                 <label for="firstName">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="firstName"
                   name="firstName"
-                  minlength="2"
-                /><br>
+                />
               </div>
+              <!-- lastName -->
               <div
                 class="formData">
                 <label for="lastName">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="lastName"
                   name="lastName"
-                /><br>
+                />
               </div>
+              <!-- email -->
               <div
                 class="formData">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
-                  id="email"
                   name="email"
-                /><br>
+                />
               </div>
+              <!-- birthdate -->
               <div
                 class="formData">
                 <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
-                  id="birthdate"
                   name="birthdate"
-                /><br>
+                />
               </div>
+              <!-- quantity -->
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" name="quantity" min="0" max="99">
               </div>
               
+              <!-- location -->
               <div
                 class="formData">
                 <input
@@ -184,6 +186,7 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
+                  name="checkbox"
                   checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
@@ -191,23 +194,35 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <input class="checkbox-input" type="checkbox" id="checkbox2"  name="checkbox"/>
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
+
+              <!-- submit -->
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
+
           </div>
         </div>
       </div>
+
+      <!-- <div class="bground-submit">
+        <div class="content">
+          <span class="close"></span>
+          <div class="modal-body">
+              <h1>Hello</h1>
+          </div>
+        </div>
+      </div> -->
+
     </main>
     <footer>
       <p class="copyrights">
