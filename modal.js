@@ -1,9 +1,5 @@
 "use strict";
 
-//Le formulaire doit être valide quand l'utilisateur clique sur "Submit"
-
-/* Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur (ex. "Merci ! Votre réservation a été reçue.") */
-
 // DOM Elements
 // Modal
 const modalbg = document.querySelector(".bground");
@@ -72,11 +68,11 @@ closeSubmitBtn.forEach((btn) =>
 const error = {
   firstName: {
     empty: "Veuillez renseigner votre prénom",
-    notValide: "Ce champ doit comporter au minimum 2 caractères",
+    notValide: "Ce champ doit comporter au minimum 2 caractères et être valide",
   },
   lastName: {
     empty: "Veuillez renseigner votre nom",
-    notValide: "Ce champ doit comporter au minimum 2 caractères",
+    notValide: "Ce champ doit comporter au minimum 2 caractères et être valide",
   },
   email: {
     empty: "Veuillez renseigner votre email",
@@ -119,7 +115,7 @@ const validInput = (input, error) => {
     "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
     "g"
   );
-  const textRegExp = new RegExp(/^.{2,}$/);
+  const textRegExp = new RegExp(/^(?=.{2,50}$)[A-zÀ-ú]+(?:['-][A-zÀ-ú]+)*$/);
   const numberRegExp = new RegExp("^([0-9]{1,2}){1}$", "g");
   const dateRegExp = new RegExp(
     /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/
