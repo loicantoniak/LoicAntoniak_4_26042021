@@ -17,7 +17,7 @@ L'objectif est de finaliser une landing page en incluant le code javascript.
 
 ## Fonctionnalités 
 
-Démo live : https://loicantoniak.github.io/LoicAntoniak_3_19022021/index.html
+Démo live : https://loicantoniak.github.io/LoicAntoniak_4_26042021/
 
 ## Compétences évaluées
 
